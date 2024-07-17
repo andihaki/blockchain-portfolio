@@ -29,7 +29,7 @@ export default function Home() {
       </Breadcrumb>
 
       <div className="mt-20 mb-12 grid grid-cols-10 gap-4 w-full">
-        <Box className="size-full" />
+        <Box className="size-full max-h-28" />
         <div className="bg-slate-200 p-4 col-span-5">
           <div className="font-bold text-3xl mb-2">GLUM Investment Fund</div>
           <div>
