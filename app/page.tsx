@@ -1,112 +1,143 @@
 import Image from "next/image";
+import { Box, ChevronDown, ChevronUp } from "lucide-react";
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
+import imgChartJs from "./assets/chartjs.png";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="m-20">
+      <Breadcrumb className="font-bold">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Screener</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">GSB</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <div className="mt-20 mb-12 grid grid-cols-10 gap-4 w-full">
+        <Box className="size-full" />
+        <div className="bg-slate-200 p-4 col-span-5">
+          <div className="font-bold text-3xl mb-2">GLUM Investment Fund</div>
+          <div>
+            The GLUM Investment Fund seeks to reflect generally the performance
+            of Sharia Stocks
+          </div>
+        </div>
+        <div className="flex text-slate-500 flex-col justify-center gap-5 bg-slate-200 p-4 col-span-2 row-span-2">
+          NAV
+          <div className="text-4xl text-black">100.00</div>
+          <div>1 Day NAV Change</div>
+          <div className="flex gap-3 text-green-800">
+            <ChevronUp />
+            1.00 (1.00%)
+          </div>
+        </div>
+        <div className="flex text-slate-500 flex-col justify-center gap-5 bg-slate-200 p-4 col-span-2 row-span-2">
+          AUM
+          <div className="text-4xl text-black">21.0M</div>
+          <div>1 Day AUM Change</div>
+          <div className="flex gap-3 text-red-800">
+            <ChevronDown />
+            1M (0.42%)
+          </div>
+        </div>
+        <div className="flex text-slate-500 flex-col gap-5 bg-slate-200 p-4">
+          Symbol
+          <div className="text-4xl text-black">GBS</div>
+          Cpr...iN1
+        </div>
+        <div className="flex text-slate-500 flex-col gap-5 bg-slate-200 p-4 col-span-2">
+          Share Class Asset
+          <div className="text-4xl text-black">USDC</div>
+          Epj...t1v
+        </div>
+        <div className="flex text-slate-500 flex-col gap-5 bg-slate-200 p-4 col-span-3">
+          Fees
+          <div className=" text-slate-500">
+            <div className="flex gap-6 justify-between">
+              <div className="flex justify-between gap-8">
+                Management
+                <div className="text-black">1.5%</div>
+              </div>
+              <div className="flex justify-between gap-8">
+                Subscription
+                <div className="text-black">0%</div>
+              </div>
+            </div>
+            <div className="flex gap-6 justify-between">
+              <div className="flex justify-between gap-8">
+                Performance
+                <div className="text-black">10%</div>
+              </div>
+              <div className="flex justify-between gap-8">
+                Redemption
+                <div className="text-black">0%</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <div>
+        <Tabs defaultValue="overview" className="py-4">
+          <TabsList>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-9 bg-slate-200 p-4">
+            <div className="font-bold text-lg">Performance</div>
+            <Image src={imgChartJs} alt="" className="w-full" />
+          </div>
+          <div className="col-span-3 bg-slate-200 p-4">
+            <div className="font-bold mt-5 mb-2 text-lg">Key Facts</div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Share Class Asset</div>
+              <div>USDC</div>
+            </div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Inception Date</div>
+              <div>2024-04-01</div>
+            </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <Separator className="my-4" />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <div className="font-bold mt-5 mb-2">Accounts</div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Fund</div>
+              <div>adsfasdf....123123</div>
+            </div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Manager</div>
+              <div>jjjpkpkopp....--o0-9-0</div>
+            </div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Treasury</div>
+              <div>90oioj90ij...ikjiojoi</div>
+            </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            <Separator className="my-4" />
+            <div className="font-bold mt-5 mb-2">Terms</div>
+            <div className="flex justify-between my-2">
+              <div className="text-slate-500">Lock-up Period</div>
+              <div>24 hours</div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

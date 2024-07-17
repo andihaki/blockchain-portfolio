@@ -26,7 +26,7 @@ export default function Sidebar() {
   return (
     <div
       className={clsx(
-        "flex flex-col h-[100vh] color text-slate-900 dark:text-slate-200 bg-slate-200 dark:bg-slate-900 py-4",
+        "flex flex-col text-slate-900 dark:text-slate-200 bg-slate-200 dark:bg-slate-900 py-4",
         collapse ? "w-20" : "w-60"
       )}
     >

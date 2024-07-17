@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex">
+        <div className="flex max-h-[100vh] overflow-y-scroll">
           <Sidebar />
-          <div className="flex-grow">{children}</div>
+          <div className="flex-grow overflow-auto">{children}</div>
           <PortfolioDetail />
         </div>
       </body>
